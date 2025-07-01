@@ -1,0 +1,7 @@
+# Midterm Reflection – COMP 170 SU25
+Reflecting on the first half of this course, I’m pleased with my consistency and engagement. I’ve submitted every assignment on time, followed all the course rules, and made it a point to be punctual and present during class sessions. I actively participate, ask questions when I need clarification, and do my best to contribute to the learning environment.
+There was one instance when I missed a class transition to Zoom because I didn’t check my email in time. It was an honest oversight, and I’ve made it a priority since then to stay more alert to announcements and check my messages regularly. Aside from that, I’ve maintained steady attendance and a strong commitment to the course.
+While I don’t intend to become a full-time programmer, I’ve put in extra effort outside of class to build my understanding of Python. My goal is to work in IT project management, and I believe having a hands-on grasp of programming will allow me to collaborate better with technical teams. I want to be able to follow what’s happening behind the code—not to write it all myself, but to lead projects confidently and communicate with developers effectively.
+This course has helped me approach learning with intention, and I appreciate the ungrading model that emphasizes growth. In the second half, I’ll continue studying beyond class time, reviewing concepts I find challenging, and building practical confidence in Python.
+
+
