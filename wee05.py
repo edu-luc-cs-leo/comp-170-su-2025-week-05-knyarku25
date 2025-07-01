@@ -10,16 +10,18 @@ def intersection(foo: str, bar: str) -> str:
 
     result = ""
 
-    # Make bar mutable by converting to a list of characters
-    bar_list = list(bar)
+    # Build a frequency list of characters in bar
+    bar_freq = []
+    for i in range(len(bar)):
+        bar_freq.append(bar[i])
 
-    # For each character in foo, check if it exists in bar_list
+    # Loop through each character in foo
     for i in range(len(foo)):
-        for j in range(len(bar_list)):
-            if foo[i] == bar_list[j]:
+        for j in range(len(bar_freq)):
+            if foo[i] == bar_freq[j]:
                 result += foo[i]
-                bar_list[j] = None  # Mark this character as used
-                break  # Stop looking after first match
+                bar_freq[j] = "*"  # Mark as used
+                break  # Only use each bar character once
     return result
 
 
@@ -79,53 +81,95 @@ def is_palindrome(string: str) -> bool:
                 
 import unittest
 
+
 class TestStringMethods(unittest.TestCase):
 
+
     def test_intersection(self):
+
         self.assertEqual(intersection("airplanes", "repairman"), "airpne")
+
         self.assertEqual(intersection("abc", "def"), "")
+
         self.assertEqual(intersection("hello", "hello"), "hello")
+
         self.assertEqual(intersection("aaaa", "aaa"), "a")
+
         self.assertEqual(intersection("", "abc"), None)
+
         self.assertEqual(intersection("abc", ""), None)
+
         self.assertEqual(intersection("", ""), None)
-        self.assertEqual(intersection("abc", "cab"), "abc")  # preserves order of `foo`
+
+        self.assertEqual(intersection("abc", "cab"), "abc") # preserves order of `foo`
+
 
     def test_is_alphabetical(self):
+
         self.assertTrue(is_alphabetical("abcXYZ"))
+
         self.assertFalse(is_alphabetical("abc1"))
+
         self.assertFalse(is_alphabetical("hello!"))
+
         self.assertFalse(is_alphabetical(" "))
+
         self.assertFalse(is_alphabetical(""))
+
         self.assertFalse(is_alphabetical(None))
+
         self.assertTrue(is_alphabetical("ZzAaBb"))
 
-    def test_letters_only(self):
-        self.assertEqual(letters_only("abc123XYZ!@#"), "abcXYZ")
-        self.assertEqual(letters_only("!@#$%^&*()"), "")
-        self.assertEqual(letters_only(""), None)
-        self.assertEqual(letters_only(None), None)
-        self.assertEqual(letters_only("LettersONLY"), "LettersONLY")
 
-    def test_generate_palindrome(self):
-        self.assertEqual(generate_palindrome("mice"), "miceecim")
-        self.assertEqual(generate_palindrome("mad"), "maddam")
-        self.assertEqual(generate_palindrome("a"), "aa")
-        self.assertEqual(generate_palindrome(""), None)
-        self.assertEqual(generate_palindrome(None), None)
+def test_letters_only(self):
 
-    def test_is_palindrome(self):
-        self.assertTrue(is_palindrome("Racecar"))
-        self.assertTrue(is_palindrome("A man, a plan, a canal, Panama"))
-        self.assertTrue(is_palindrome("No 'x' in Nixon"))
-        self.assertFalse(is_palindrome("Hello"))
-        self.assertFalse(is_palindrome("Palindrome"))
-        self.assertFalse(is_palindrome(""))
-        self.assertFalse(is_palindrome(None))
+    self.assertEqual(letters_only("abc123XYZ!@#"), "abcXYZ")
+
+    self.assertEqual(letters_only("!@#$%^&*()"), "")
+
+    self.assertEqual(letters_only(""), None)
+
+    self.assertEqual(letters_only(None), None)
+
+    self.assertEqual(letters_only("LettersONLY"), "LettersONLY")
 
 
-# This allows the test to be run from the command line using `python -m unittest week05.py`
+def test_generate_palindrome(self):
+
+    self.assertEqual(generate_palindrome("mice"), "miceecim")
+
+    self.assertEqual(generate_palindrome("mad"), "madam")
+
+    self.assertEqual(generate_palindrome("a"), "a")
+
+    self.assertEqual(generate_palindrome(""), None)
+
+    self.assertEqual(generate_palindrome(None), None)
+
+
+def test_is_palindrome(self):
+
+    self.assertTrue(is_palindrome("Racecar"))
+
+    self.assertTrue(is_palindrome("A man, a plan, a canal, Panama"))
+
+    self.assertTrue(is_palindrome("No 'x' in Nixon"))
+
+    self.assertFalse(is_palindrome("Hello"))
+
+    self.assertFalse(is_palindrome("Palindrome"))
+
+    self.assertFalse(is_palindrome(""))
+
+    self.assertFalse(is_palindrome(None))
+
+
+
+
+# This allows the test to be run from the command line using `python -m unittest filename.py`
+
 if __name__ == '__main__':
+
     unittest.main()
 
 
